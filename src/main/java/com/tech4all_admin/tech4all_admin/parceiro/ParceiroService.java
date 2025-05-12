@@ -16,7 +16,7 @@ public class ParceiroService {
 
     public void createParceiro(ParceiroDTO parceiroDTO) {
         Parceiro parceiro = new Parceiro();
-        parceiro.setName(parceiroDTO.getName());
+        parceiro.setNome(parceiroDTO.getName());
         parceiroRepository.save(parceiro);
     }
 

@@ -1,19 +1,19 @@
 package com.tech4all_admin.tech4all_admin.doacao;
 
 public class ComparativoDTO {
-    private Long totalComParceiro;
-    private Long totalSemParceiro;
+    private Double totalComParceiro;
+    private Double totalSemParceiro;
 
-    public ComparativoDTO(Long totalComParceiro, Long totalSemParceiro) {
+    public ComparativoDTO(Double totalComParceiro, Double totalSemParceiro) {
         this.totalComParceiro = totalComParceiro;
         this.totalSemParceiro = totalSemParceiro;
     }
 
-    public Long getTotalComParceiro() {
+    public Double getTotalComParceiro() {
         return totalComParceiro;
     }
 
-    public Long getTotalSemParceiro() {
+    public Double getTotalSemParceiro() {
         return totalSemParceiro;
     }
 }

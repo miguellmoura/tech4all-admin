@@ -9,20 +9,13 @@ import lombok.Setter;
 @Getter
 @Entity
 public class Doador {
+
     @Id
     private Long id;
 
-    public Doador() {} // construtor padrão
+    public Doador() {}
 
     public Doador(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
         this.id = id;
     }
 }
