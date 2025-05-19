@@ -1,48 +1,29 @@
 package com.tech4all_admin.tech4all_admin.doacao;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.List;
 
 @Service
 public class DoacaoService {
+
     private final DoacaoRepository doacaoRepository;
 
-    @Autowired
     public DoacaoService(DoacaoRepository doacaoRepository) {
         this.doacaoRepository = doacaoRepository;
     }
 
-    public void createDoacao(DoacaoDTO doacaoDTO) {
-        Doacao doacao = new Doacao();
-
-        doacao.setId_doador(doacaoDTO.getIdDoador());
-        doacao.setId_parceiro(doacaoDTO.getIdParceiro());
-        doacao.setValor(doacaoDTO.getValor());
-        doacao.setData_doacao(doacaoDTO.getDataDoacao());
-        doacao.setStatus(doacaoDTO.getStatus());
-        doacao.setQr_code_pix(doacaoDTO.getQrCodePix());
-
-        doacaoRepository.save(doacao);
+    public List<TotalPorParceiroDTO> getTotalPorParceiro(LocalDate inicio, LocalDate fim, Long idParceiro) {
+        return doacaoRepository.findTotalPorParceiro(inicio, fim, idParceiro);
     }
 
-    public ArrayList<DoacaoDTO> getDoacoes() {
-        ArrayList<Doacao> doacoes = (ArrayList<Doacao>) doacaoRepository.findAll();
-        ArrayList<DoacaoDTO> doacoesDTO = new ArrayList<>();
-
-        for (Doacao doacao : doacoes) {
-            DoacaoDTO doacaoDTO = new DoacaoDTO();
-            doacaoDTO.setIdDoador(doacao.getId_doador());
-            doacaoDTO.setIdParceiro(doacao.getId_parceiro());
-            doacaoDTO.setValor(doacao.getValor());
-            doacaoDTO.setDataDoacao(doacao.getData_doacao());
-            doacaoDTO.setStatus(doacao.getStatus());
-            doacaoDTO.setQrCodePix(doacao.getQr_code_pix());
-
-            doacoesDTO.add(doacaoDTO);
-        }
-
-        return doacoesDTO;
-    }
+//    public ComparativoDTO getComparativo(Date inicio, Date fim) {
+//        return doacaoRepository.findComparativo(inicio, fim);
+//    }
+//
+//    public List<ArrecadacaoMensalDTO> getArrecadacaoMensal(Integer ano) {
+//        return doacaoRepository.findArrecadacaoMensal(ano);
+//    }
 }

@@ -1,10 +1,9 @@
 package com.tech4all_admin.tech4all_admin.doacao;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import com.tech4all_admin.tech4all_admin.doador.Doador;
+import com.tech4all_admin.tech4all_admin.parceiro.Parceiro;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Null;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,20 +13,23 @@ import java.sql.Date;
 @Getter
 @Entity
 public class Doacao {
+
     @Id
     @GeneratedValue
     private Integer id;
 
+    @ManyToOne
+    @JoinColumn(name = "id_doador", referencedColumnName = "id")
     @NotNull
-    private Integer id_doador;
+    private Doador doador;
 
-    @Null
-    private Integer id_parceiro;
+    @ManyToOne
+    @JoinColumn(name = "id_parceiro", referencedColumnName = "id")
+    private Parceiro parceiro;
 
     @NotNull
     private Double valor;
 
-    @Null
     private Date data_doacao;
 
     @NotNull
@@ -36,13 +38,12 @@ public class Doacao {
     @NotNull
     private String qr_code_pix;
 
-    public Doacao () {
-    }
+    public Doacao() {}
 
-    public Doacao(Integer id, Integer id_doador, Integer id_parceiro, Double valor, Date data_doacao, String status, String qr_code_pix) {
+    public Doacao(Integer id, Doador doador, Parceiro parceiro, Double valor, Date data_doacao, String status, String qr_code_pix) {
         this.id = id;
-        this.id_doador = id_doador;
-        this.id_parceiro = id_parceiro;
+        this.doador = doador;
+        this.parceiro = parceiro;
         this.valor = valor;
         this.data_doacao = data_doacao;
         this.status = status;
