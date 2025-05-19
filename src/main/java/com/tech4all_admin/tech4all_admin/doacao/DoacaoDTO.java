@@ -1,21 +1,23 @@
 package com.tech4all_admin.tech4all_admin.doacao;
 
 import lombok.Setter;
+import org.springframework.cglib.core.Local;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class DoacaoDTO {
     private Integer id_doador;
     private Integer id_parceiro;
     private Double valor;
-    private Date data_doacao;
+    private LocalDate data_doacao;
     private String status;
     private String qr_code_pix;
 
     // Construtores
     public DoacaoDTO() {}
 
-    public DoacaoDTO(Integer id_doador, Integer id_parceiro, Double valor, Date data_doacao, String status, String qr_code_pix) {
+    public DoacaoDTO(Integer id_doador, Integer id_parceiro, Double valor, LocalDate data_doacao, String status, String qr_code_pix) {
         this.id_doador = id_doador;
         this.id_parceiro = id_parceiro;
         this.valor = valor;
@@ -49,11 +51,11 @@ public class DoacaoDTO {
         this.valor = valor;
     }
 
-    public Date getDataDoacao() {
+    public LocalDate getDataDoacao() {
         return data_doacao;
     }
 
-    public void setDataDoacao(Date data_doacao) {
+    public void setDataDoacao(LocalDate data_doacao) {
         this.data_doacao = data_doacao;
     }
 

@@ -34,8 +34,13 @@ public interface DoacaoRepository extends JpaRepository<Doacao, Integer> {
 //    ComparativoDTO findComparativo(@Param("inicio") java.sql.Date inicio,
 //                                   @Param("fim") java.sql.Date fim);
 //
-//    @Query("SELECT new com.tech4all_admin.tech4all_admin.doacao.ArrecadacaoMensalDTO( " +
-//            "    MONTH(d.data_doacao), SUM(d.valor)) " +
-//            "FROM Doacao d WHERE YEAR(d.data_doacao) = :ano GROUP BY MONTH(d.data_doacao)")
-//    List<ArrecadacaoMensalDTO> findArrecadacaoMensal(@Param("ano") Integer ano);
+@Query(
+        value = "SELECT MONTH(data_doacao) AS mes, SUM(valor) AS total " +
+                "FROM doacao " +
+                "WHERE YEAR(data_doacao) = :ano " +
+                "GROUP BY MONTH(data_doacao) " +
+                "ORDER BY mes",
+        nativeQuery = true
+)
+List<Object[]> findArrecadacaoMensalNativa(@Param("ano") Integer ano);
 }

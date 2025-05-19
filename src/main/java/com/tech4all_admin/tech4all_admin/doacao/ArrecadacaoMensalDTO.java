@@ -1,19 +1,27 @@
 package com.tech4all_admin.tech4all_admin.doacao;
 
 public class ArrecadacaoMensalDTO {
-    private Integer mes;
-    private Double valorTotal;
+    private int mes;
+    private double total;
 
-    public ArrecadacaoMensalDTO(Integer mes, Double valorTotal) {
+    public ArrecadacaoMensalDTO(int mes, double total) {
         this.mes = mes;
-        this.valorTotal = valorTotal;
+        this.total = total;
     }
 
-    public Integer getMes() {
+    public int getMes() {
         return mes;
     }
 
-    public Double getValorTotal() {
-        return valorTotal;
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
     }
 }

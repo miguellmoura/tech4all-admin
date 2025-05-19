@@ -6,8 +6,10 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.cglib.core.Local;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Setter
 @Getter
@@ -30,7 +32,7 @@ public class Doacao {
     @NotNull
     private Double valor;
 
-    private Date data_doacao;
+    private LocalDate data_doacao;
 
     @NotNull
     private String status;
@@ -40,7 +42,7 @@ public class Doacao {
 
     public Doacao() {}
 
-    public Doacao(Integer id, Doador doador, Parceiro parceiro, Double valor, Date data_doacao, String status, String qr_code_pix) {
+    public Doacao(Integer id, Doador doador, Parceiro parceiro, Double valor, LocalDate data_doacao, String status, String qr_code_pix) {
         this.id = id;
         this.doador = doador;
         this.parceiro = parceiro;
