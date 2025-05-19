@@ -34,8 +34,8 @@ public class DoacaoController {
 //        return doacaoService.getComparativo(inicio, fim);
 //    }
 //
-//    @GetMapping("/relatorio/arrecadacao-mensal")
-//    public List<ArrecadacaoMensalDTO> getArrecadacaoMensal(@RequestParam("ano") Integer ano) {
-//        return doacaoService.getArrecadacaoMensal(ano);
-//    }
+    @GetMapping("/relatorio/arrecadacao-mensal")
+    public List<ArrecadacaoMensalDTO> getArrecadacaoMensal(@RequestParam("ano") Integer ano) {
+        return doacaoService.getArrecadacaoMensal(ano);
+    }
 }
