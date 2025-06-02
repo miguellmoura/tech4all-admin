@@ -18,6 +18,9 @@ public class Parceiro {
     @NotNull
     private String nome;
 
+    @NotNull
+    private String tipo;
+
     public Parceiro() {}
 
     public Parceiro(Long id, String nome) {
