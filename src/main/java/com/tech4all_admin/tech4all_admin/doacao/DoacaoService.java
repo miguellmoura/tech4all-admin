@@ -21,16 +21,16 @@ public class DoacaoService {
         return doacaoRepository.findTotalPorParceiro(inicio, fim, idParceiro);
     }
 
-//    public ComparativoDTO getComparativo(Date inicio, Date fim) {
-//        return doacaoRepository.findComparativo(inicio, fim);
-//    }
-//
+    public ComparativoDTO getComparativo(LocalDate inicio, LocalDate fim) {
+        return doacaoRepository.findComparativo(inicio, fim);
+    }
+
 public List<ArrecadacaoMensalDTO> getArrecadacaoMensal(Integer ano) {
     List<Object[]> results = doacaoRepository.findArrecadacaoMensalNativa(ano);
     return results.stream()
             .map(r -> new ArrecadacaoMensalDTO(
-                    ((Integer) r[0]), // mês
-                    ((BigDecimal) r[1]).doubleValue()   // total convertido de BigDecimal para double
+                    ((Integer) r[0]),
+                    ((BigDecimal) r[1]).doubleValue()
             ))
             .toList();
 }
