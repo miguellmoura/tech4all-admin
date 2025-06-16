@@ -1,21 +1,38 @@
-# API - Administração Financeira (Back-end)
+# 💼 Tech4All - Administração Financeira (Back-end)
 
-Este serviço fornece a API REST responsável pelas funcionalidades principais do sistema financeiro, gerenciamento de parceiros e funcionários, além de geração de gráficos e relatórios.
+Este repositório contém o **serviço back-end** da aplicação **Tech4All - Administração Financeira**, responsável por prover uma **API RESTful** para:
 
-## 🛠️ Tecnologias
-- Java com SpringBoot
-- Swagger
+- Gerenciamento de **parceiros** e **funcionários**
+- Geração de **relatórios financeiros** e **gráficos**
+- Integração com o front-end do dashboard
+- Documentação interativa via **Swagger**
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- Java 17+
+- Spring Boot
+- Swagger / OpenAPI
+- Maven Wrapper (`mvnw`)
+
+---
 
 ## 🚀 Como rodar localmente
 
+### Pré-requisitos
+
+- Java (JDK 17 ou superior)
+- Maven (ou utilize o Maven Wrapper do projeto)
+
+### Passos
+
 ```bash
-git clone (https://github.com/nome-usuario/tech4all-admin.git)
-````
-```bash
-nvm clean install
-```
-```bash
-./mvnw spring-boot:run (ou você pode rodar manualmente na classe Tech4AllAdminApplication)
-```
-## Agora é só testar usando o front-end do dashboard
-Você pode acessá-lo através do repositório: https://github.com/ymandy1/dashboard-financial-report
+# Clone o repositório
+git clone https://github.com/ymandy1/tech4all-admin.git
+
+# Instale as dependências
+./mvnw clean install
+
+# Inicie a aplicação
+./mvnw spring-boot:run
