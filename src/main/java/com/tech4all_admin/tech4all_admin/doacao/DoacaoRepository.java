@@ -1,5 +1,6 @@
 package com.tech4all_admin.tech4all_admin.doacao;
 
+import org.springframework.cglib.core.Local;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -26,15 +27,14 @@ public interface DoacaoRepository extends JpaRepository<Doacao, Integer> {
 
 
 
+    @Query("SELECT new com.tech4all_admin.tech4all_admin.doacao.ComparativoDTO( " +
+            "CAST(SUM(CASE WHEN d.parceiro IS NOT NULL THEN d.valor ELSE 0 END) AS double), " +
+            "CAST(SUM(CASE WHEN d.parceiro IS NULL THEN d.valor ELSE 0 END) AS double)) " +
+            "FROM Doacao d WHERE d.data_doacao BETWEEN :inicio AND :fim")
+    ComparativoDTO findComparativo(@Param("inicio") LocalDate inicio,
+                                   @Param("fim") LocalDate fim);
 
-//    @Query("SELECT new com.tech4all_admin.tech4all_admin.doacao.ComparativoDTO( " +
-//            "    SUM(CASE WHEN d.parceiro IS NOT NULL THEN d.valor ELSE 0 END), " +
-//            "    SUM(CASE WHEN d.parceiro IS NULL THEN d.valor ELSE 0 END)) " +
-//            "FROM Doacao d WHERE d.data_doacao BETWEEN :inicio AND :fim")
-//    ComparativoDTO findComparativo(@Param("inicio") java.sql.Date inicio,
-//                                   @Param("fim") java.sql.Date fim);
-//
-@Query(
+    @Query(
         value = "SELECT MONTH(data_doacao) AS mes, SUM(valor) AS total " +
                 "FROM doacao " +
                 "WHERE YEAR(data_doacao) = :ano " +
