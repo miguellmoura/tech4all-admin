@@ -2,18 +2,13 @@ package com.tech4all_admin.tech4all_admin.parceiro;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.Setter;
 
-@Setter
-@Getter
 @Entity
 public class Parceiro {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "parceiro_seq")
-    @SequenceGenerator(name = "parceiro_seq", sequenceName = "parceiro_seq", allocationSize = 1)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @NotNull
     private String nome;
@@ -23,8 +18,33 @@ public class Parceiro {
 
     public Parceiro() {}
 
-    public Parceiro(Long id, String nome) {
+    public Parceiro(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
 }

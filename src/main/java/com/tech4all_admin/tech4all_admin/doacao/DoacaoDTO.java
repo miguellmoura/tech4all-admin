@@ -3,13 +3,14 @@ package com.tech4all_admin.tech4all_admin.doacao;
 import lombok.Setter;
 import org.springframework.cglib.core.Local;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.time.LocalDate;
 
 public class DoacaoDTO {
     private Integer id_doador;
     private Integer id_parceiro;
-    private Double valor;
+    private BigDecimal valor;
     private LocalDate data_doacao;
     private String status;
     private String qr_code_pix;
@@ -17,7 +18,7 @@ public class DoacaoDTO {
     // Construtores
     public DoacaoDTO() {}
 
-    public DoacaoDTO(Integer id_doador, Integer id_parceiro, Double valor, LocalDate data_doacao, String status, String qr_code_pix) {
+    public DoacaoDTO(Integer id_doador, Integer id_parceiro, BigDecimal valor, LocalDate data_doacao, String status, String qr_code_pix) {
         this.id_doador = id_doador;
         this.id_parceiro = id_parceiro;
         this.valor = valor;
@@ -43,11 +44,11 @@ public class DoacaoDTO {
         this.id_parceiro = id_parceiro;
     }
 
-    public Double getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(Double valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 

@@ -1,10 +1,12 @@
 package com.tech4all_admin.tech4all_admin.doacao;
 
+import java.math.BigInteger;
+
 public class ArrecadacaoMensalDTO {
     private int mes;
-    private double total;
+    private BigInteger total;
 
-    public ArrecadacaoMensalDTO(int mes, double total) {
+    public ArrecadacaoMensalDTO(int mes, BigInteger total) {
         this.mes = mes;
         this.total = total;
     }
@@ -17,11 +19,11 @@ public class ArrecadacaoMensalDTO {
         this.mes = mes;
     }
 
-    public double getTotal() {
+    public BigInteger getTotal() {
         return total;
     }
 
-    public void setTotal(double total) {
+    public void setTotal(BigInteger total) {
         this.total = total;
     }
 }

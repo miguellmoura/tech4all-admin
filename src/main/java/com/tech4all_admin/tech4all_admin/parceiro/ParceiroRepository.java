@@ -5,5 +5,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ParceiroRepository extends JpaRepository<Parceiro, Integer> {
-    Integer id(Long id);
 }
