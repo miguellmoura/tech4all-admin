@@ -36,7 +36,7 @@ public interface DoacaoRepository extends JpaRepository<Doacao, Integer> {
 
     @Query(
         value = "SELECT MONTH(data_doacao) AS mes, SUM(valor) AS total " +
-                "FROM doacao " +
+                "FROM Doacoes " +
                 "WHERE YEAR(data_doacao) = :ano " +
                 "GROUP BY MONTH(data_doacao) " +
                 "ORDER BY mes",
