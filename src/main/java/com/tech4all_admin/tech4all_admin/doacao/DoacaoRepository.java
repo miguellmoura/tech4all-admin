@@ -23,13 +23,13 @@ public interface DoacaoRepository extends JpaRepository<Doacao, Integer> {
             "GROUP BY p.id, p.nome")
     List<TotalPorParceiroDTO> findTotalPorParceiro(@Param("inicio") LocalDate inicio,
                                                    @Param("fim") LocalDate fim,
-                                                   @Param("idParceiro") Long idParceiro);
+                                                   @Param("idParceiro") Integer idParceiro);
 
 
 
     @Query("SELECT new com.tech4all_admin.tech4all_admin.doacao.ComparativoDTO( " +
-            "CAST(SUM(CASE WHEN d.parceiro IS NOT NULL THEN d.valor ELSE 0 END) AS double), " +
-            "CAST(SUM(CASE WHEN d.parceiro IS NULL THEN d.valor ELSE 0 END) AS double)) " +
+            "SUM(CASE WHEN d.parceiro IS NOT NULL THEN d.valor ELSE 0 END) , " +
+            "SUM(CASE WHEN d.parceiro IS NULL THEN d.valor ELSE 0 END) ) " +
             "FROM Doacao d WHERE d.data_doacao BETWEEN :inicio AND :fim")
     ComparativoDTO findComparativo(@Param("inicio") LocalDate inicio,
                                    @Param("fim") LocalDate fim);

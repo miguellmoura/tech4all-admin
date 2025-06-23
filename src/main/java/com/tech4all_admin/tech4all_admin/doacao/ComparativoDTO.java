@@ -1,19 +1,21 @@
 package com.tech4all_admin.tech4all_admin.doacao;
 
-public class ComparativoDTO {
-    private Double totalComParceiro;
-    private Double totalSemParceiro;
+import java.math.BigDecimal;
 
-    public ComparativoDTO(Double totalComParceiro, Double totalSemParceiro) {
+public class ComparativoDTO {
+    private BigDecimal totalComParceiro;
+    private BigDecimal totalSemParceiro;
+
+    public ComparativoDTO(BigDecimal totalComParceiro, BigDecimal totalSemParceiro) {
         this.totalComParceiro = totalComParceiro;
         this.totalSemParceiro = totalSemParceiro;
     }
 
-    public Double getTotalComParceiro() {
+    public BigDecimal getTotalComParceiro() {
         return totalComParceiro;
     }
 
-    public Double getTotalSemParceiro() {
+    public BigDecimal getTotalSemParceiro() {
         return totalSemParceiro;
     }
 }

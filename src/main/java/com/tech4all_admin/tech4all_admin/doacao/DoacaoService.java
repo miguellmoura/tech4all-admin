@@ -17,7 +17,7 @@ public class DoacaoService {
         this.doacaoRepository = doacaoRepository;
     }
 
-    public List<TotalPorParceiroDTO> getTotalPorParceiro(LocalDate inicio, LocalDate fim, Long idParceiro) {
+    public List<TotalPorParceiroDTO> getTotalPorParceiro(LocalDate inicio, LocalDate fim, Integer idParceiro) {
         return doacaoRepository.findTotalPorParceiro(inicio, fim, idParceiro);
     }
 
@@ -25,15 +25,16 @@ public class DoacaoService {
         return doacaoRepository.findComparativo(inicio, fim);
     }
 
-public List<ArrecadacaoMensalDTO> getArrecadacaoMensal(Integer ano) {
-    List<Object[]> results = doacaoRepository.findArrecadacaoMensalNativa(ano);
-    return results.stream()
-            .map(r -> new ArrecadacaoMensalDTO(
-                    ((Integer) r[0]),
-                    ((BigDecimal) r[1]).doubleValue()
-            ))
-            .toList();
-}
+    public List<ArrecadacaoMensalDTO> getArrecadacaoMensal(Integer ano) {
+        List<Object[]> results = doacaoRepository.findArrecadacaoMensalNativa(ano);
+        return results.stream()
+                .map(r -> new ArrecadacaoMensalDTO(
+                        ((Integer) r[0]),
+                        ((BigDecimal) r[1]).toBigInteger()
+                ))
+                .toList();
+    }
+
 
 
 }

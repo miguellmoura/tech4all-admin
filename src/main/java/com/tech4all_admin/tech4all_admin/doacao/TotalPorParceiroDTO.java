@@ -1,19 +1,21 @@
 package com.tech4all_admin.tech4all_admin.doacao;
 
+import java.math.BigDecimal;
+
 public class TotalPorParceiroDTO {
     private String parceiro;
-    private Double valorTotal;
+    private BigDecimal valorTotal;
 
     private Integer idParceiro;
     private String nomeParceiro;
-    private Double total;
+    private BigDecimal total;
 
-    public TotalPorParceiroDTO(String parceiro, Double valorTotal) {
+    public TotalPorParceiroDTO(String parceiro, BigDecimal valorTotal) {
         this.parceiro = parceiro;
         this.valorTotal = valorTotal;
     }
 
-    public TotalPorParceiroDTO(Integer idParceiro, String nomeParceiro, Double total) {
+    public TotalPorParceiroDTO(Integer idParceiro, String nomeParceiro, BigDecimal total) {
         this.idParceiro = idParceiro;
         this.nomeParceiro = nomeParceiro;
         this.total = total;
@@ -27,11 +29,11 @@ public class TotalPorParceiroDTO {
         this.parceiro = parceiro;
     }
 
-    public Double getValorTotal() {
+    public BigDecimal getValorTotal() {
         return valorTotal;
     }
 
-    public void setValorTotal(Double valorTotal) {
+    public void setValorTotal(BigDecimal valorTotal) {
         this.valorTotal = valorTotal;
     }
 
@@ -51,11 +53,11 @@ public class TotalPorParceiroDTO {
         this.nomeParceiro = nomeParceiro;
     }
 
-    public Double getTotal() {
+    public BigDecimal getTotal() {
         return total;
     }
 
-    public void setTotal(Double total) {
+    public void setTotal(BigDecimal total) {
         this.total = total;
     }
 }

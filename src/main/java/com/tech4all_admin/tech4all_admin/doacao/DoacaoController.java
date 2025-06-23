@@ -24,7 +24,7 @@ public class DoacaoController {
     public List<TotalPorParceiroDTO> getTotalPorParceiro(
             @RequestParam("inicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate inicio,
             @RequestParam("fim") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fim,
-            @RequestParam(value = "idParceiro", required = false) Long idParceiro) {
+            @RequestParam(value = "idParceiro", required = false) Integer idParceiro) {
         return doacaoService.getTotalPorParceiro(inicio, fim, idParceiro);
     }
 
