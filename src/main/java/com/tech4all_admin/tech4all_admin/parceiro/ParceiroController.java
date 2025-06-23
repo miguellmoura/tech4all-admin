@@ -32,7 +32,7 @@ public class ParceiroController {
     }
 
     @DeleteMapping("/parceiro")
-    public ResponseEntity<String> deleteParceiro(@RequestParam("idParceiro") Long idParceiro) {
+    public ResponseEntity<String> deleteParceiro(@RequestParam("idParceiro") Integer idParceiro) {
         try {
             parceiroService.deleteParceiro(idParceiro);
             return ResponseEntity.ok().body("deletado");

@@ -4,7 +4,7 @@ public class TotalPorParceiroDTO {
     private String parceiro;
     private Double valorTotal;
 
-    private Long idParceiro;
+    private Integer idParceiro;
     private String nomeParceiro;
     private Double total;
 
@@ -13,7 +13,7 @@ public class TotalPorParceiroDTO {
         this.valorTotal = valorTotal;
     }
 
-    public TotalPorParceiroDTO(Long idParceiro, String nomeParceiro, Double total) {
+    public TotalPorParceiroDTO(Integer idParceiro, String nomeParceiro, Double total) {
         this.idParceiro = idParceiro;
         this.nomeParceiro = nomeParceiro;
         this.total = total;
@@ -35,11 +35,11 @@ public class TotalPorParceiroDTO {
         this.valorTotal = valorTotal;
     }
 
-    public Long getIdParceiro() {
+    public Integer getIdParceiro() {
         return idParceiro;
     }
 
-    public void setIdParceiro(Long idParceiro) {
+    public void setIdParceiro(Integer idParceiro) {
         this.idParceiro = idParceiro;
     }
 

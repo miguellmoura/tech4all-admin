@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.cglib.core.Local;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.time.LocalDate;
 
@@ -17,7 +18,7 @@ import java.time.LocalDate;
 public class Doacao {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne
@@ -30,7 +31,7 @@ public class Doacao {
     private Parceiro parceiro;
 
     @NotNull
-    private Double valor;
+    private BigDecimal valor;
 
     private LocalDate data_doacao;
 
@@ -42,7 +43,7 @@ public class Doacao {
 
     public Doacao() {}
 
-    public Doacao(Integer id, Doador doador, Parceiro parceiro, Double valor, LocalDate data_doacao, String status, String qr_code_pix) {
+    public Doacao(Integer id, Doador doador, Parceiro parceiro, BigDecimal valor, LocalDate data_doacao, String status, String qr_code_pix) {
         this.id = id;
         this.doador = doador;
         this.parceiro = parceiro;

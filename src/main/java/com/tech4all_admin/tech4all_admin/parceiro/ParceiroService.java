@@ -20,7 +20,7 @@ public class ParceiroService {
 
     public void createParceiro(ParceiroDTO parceiroDTO) {
         Parceiro parceiro = new Parceiro();
-        parceiro.setNome(parceiroDTO.getName());
+        parceiro.setNome(parceiroDTO.getNome());
         parceiro.setTipo(parceiroDTO.getTipo());
         parceiroRepository.save(parceiro);
     }
@@ -29,8 +29,8 @@ public class ParceiroService {
         return parceiroRepository.findAll();
     }
 
-    public void deleteParceiro (Long idParceiro) {
-        parceiroRepository.deleteById(idParceiro.intValue());
+    public void deleteParceiro (Integer idParceiro) {
+        parceiroRepository.deleteById(idParceiro);
     }
 
     public void atualizarParceiro(Long id, Parceiro parceiroAtualizado) {

@@ -4,25 +4,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ParceiroDTO {
 
-    @JsonProperty("nome")
-    private String name;
-
-    @JsonProperty("tipo")
+    private String nome;
     private String tipo;
 
-    public ParceiroDTO() {
+    public ParceiroDTO() {}
+
+    public ParceiroDTO(String nome) {
+        this.nome = nome;
     }
 
-    public ParceiroDTO(String name) {
-        this.name = name;
+    public String getNome() {
+        return nome;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getTipo() {
@@ -33,3 +29,4 @@ public class ParceiroDTO {
         this.tipo = tipo;
     }
 }
+
